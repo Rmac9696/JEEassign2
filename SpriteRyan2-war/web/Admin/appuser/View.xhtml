@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle2.ViewAppuserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle2.ViewAppuserLabel_id}"/>
+                    <h:outputText value="#{appuserController.selected.id}" title="#{bundle2.ViewAppuserTitle_id}"/>
+                    <h:outputText value="#{bundle2.ViewAppuserLabel_groupname}"/>
+                    <h:outputText value="#{appuserController.selected.groupname}" title="#{bundle2.ViewAppuserTitle_groupname}"/>
+                    <h:outputText value="#{bundle2.ViewAppuserLabel_password}"/>
+                    <h:outputText value="#{appuserController.selected.password}" title="#{bundle2.ViewAppuserTitle_password}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{appuserController.destroyAndView}" value="#{bundle2.ViewAppuserDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle2.ViewAppuserEditLink}"/>
+                <br />
+                <h:commandLink action="#{appuserController.prepareCreate}" value="#{bundle2.ViewAppuserCreateLink}" />
+                <br />
+                <h:commandLink action="#{appuserController.prepareList}" value="#{bundle2.ViewAppuserShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle2.ViewAppuserIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
